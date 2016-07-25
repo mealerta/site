@@ -2,42 +2,43 @@
 
 if (isset($_POST['name']) and isset($_POST['email']) and isset($_POST['message']))  {
 
-    require_once('../PHPMailer/class.phpmailer.php');
+    require_once('../PHPMailer/PHPMailerAutoload.php');
 
-    $mailer = new PHPMailer();
-    $mail->IsSMTP();
+    $mail = new PHPMailer();
+    $mail->isSMTP();
     $mail->SMTPAuth   = true;
     $mail->SMTPSecure = "tls";
     $mail->Host       = "email-smtp.us-east-1.amazonaws.com";
-    $mail->Username   = "KIAIESZISNA2KRWH2FQ";
+    $mail->Username   = "AKIAIESZISNA2KRWH2FQ";
     $mail->Password   = "AuLlxKoddZHk59QZUXjcXepM9DzsnoDkmDN // aDZSe3j";
+    //$mail->SMTPDebug = 3;
+    $mail->Port = 587;
+    //Ask for HTML-friendly debug output
+    //$mail->Debugoutput = 'html';
+    $mail->CharSet = 'UTF-8';
 
-    $mail->SetFrom('mealerta@mealerta.com', 'mealerta.com');
+    $mail->setFrom('mealerta@mealerta.com', 'mealerta.com');
     $mail->Subject = "Contato Site"; //subject
 
     //message
-    $body = "Nome: ".$_POST['name']."\n";
-    $body .= "E-mail: ".$_POST['email']."\n";
-    $body .= "Mensagem: ".$_POST['message']."\n";
-    $body = eregi_replace("[]",'',$body);
-    $mail->MsgHTML($body);
+    $body = "Nome: ".$_POST['name']."<br>";
+    $body .= "E-mail: ".$_POST['email']."<br>";
+    $body .= "Mensagem: ".$_POST['message'];
+    //$body = eregi_replace("[]",'',$body);
+    $mail->msgHTML($body);
     //
 
     //recipient
-    $mail->AddAddress("mealerta@mealerta.com", "mealerta.com");
+    $mail->addAddress("mealerta@mealerta.com", "mealerta.com");
 
     //Success
-    if ($mail->Send()) {
+    if ($mail->send()) {
     echo "Obrigado pelo seu contato. Entraremos em contato com você em breve.";
     //die; 
-    sleep(3);
     $redirect = "http://www.mealerta.com";
     header("location:$redirect");
-    }
-
-    //Error
-    if(!$mail->Send()) {
-    echo "E-mail não enviado.\nErro: " . $mail->ErrorInfo;
+    } else {
+        echo "E-mail não enviado.\nErro: " . $mail->ErrorInfo;    
     }
 } else {
     echo "Desculpe, há um problema com os dados informados.";
