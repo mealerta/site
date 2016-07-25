@@ -268,21 +268,7 @@ nav ul li.destaque-painel {
   background-color: #2b2d48;
 }
 
-#contato {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    margin-top: -385px;
-    font-size: 1.5em;    
-    color: #2b2d48;
-    letter-spacing: 3px;
+img.logo-mealerta {
+    width: 150px;
 }
-#contato a {
-  color: #2b2d48;
-  border-bottom: 2px solid #ff7d00;
-  padding-bottom: 5px;
-}
-}
-#contato a:hover {
-  color: #2196F3;
-}
+

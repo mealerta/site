@@ -7,20 +7,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link rel="shortcut icon" type="image/png" href="../favicon.ico"/>
-  <title>Painel meAlerta.com</title>
+  <title>Recuperar Senha Painel - meAlerta.com</title>
   <link rel="stylesheet" href="css/style.css">
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-  <form action="http://ec2-52-67-36-170.sa-east-1.compute.amazonaws.com:3000/login" method="post" class="login">
+  <form action="http://ec2-52-67-36-170.sa-east-1.compute.amazonaws.com:3000/user/password/send-reset-email" method="post" class="login">
     <img class="logo" src="../img/logo_meAlerta.png" />
     <input type="text" name="user" class="login-input"  required placeholder="email ou nome de usuário" autofocus>
-    <input type="password" name="password" class="login-input" required placeholder="senha">
-    <input type="submit" value="Login" class="login-submit">
-    <p class="login-help"><a href="recuperar.html">Esqueceu a senha?</a></p>
+    <input type="submit" value="Enviar informações para resetar senha" class="login-submit">
   </form>
 
 </body>
 </html>
-
 
