@@ -1,7 +1,7 @@
   1 <?php
   2 if (isset($_POST['name']) and isset($_POST['email']) and isset($_POST['message']))  {
   3 
-  4   require_once('PHPMailer/class.phpmailer.php');
+  4   require_once('../PHPMailer/class.phpmailer.php');
   5 
   6   $mailer = new PHPMailer();
   7   $mail->IsSMTP();
